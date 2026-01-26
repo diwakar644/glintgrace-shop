@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Makes the background slightly grey like a modern app */
+body {
+  @apply bg-gray-50 text-gray-900;
+}
