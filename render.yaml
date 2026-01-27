@@ -1,7 +1,5 @@
 services:
   - type: web
     name: glintgrace-api
-    env: bun
-    buildCommand: bun install
-    startCommand: bun run src/index.ts
+    env: docker
     plan: free
