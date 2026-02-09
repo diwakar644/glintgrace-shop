@@ -8,7 +8,7 @@ export default function Shop() {
   const addToCart = useCart((state) => state.addToCart);
 
   useEffect(() => {
-    fetch('http://localhost:3000/products')
+    fetch('https://glintgrace-api.onrender.com/products')
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.error(err));

@@ -8,7 +8,7 @@ export default function Admin() {
 
   // 1. Fetch Products (So we can see what to delete)
   const fetchProducts = () => {
-    fetch('http://localhost:3000/products')
+    fetch('https://glintgrace-api.onrender.com/products')
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => console.error(err));
@@ -22,7 +22,7 @@ export default function Admin() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const payload = { ...formData, price: Number(formData.price) };
-    await fetch('http://localhost:3000/products', {
+    await fetch('https://glintgrace-api.onrender.com/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -36,7 +36,7 @@ export default function Admin() {
   const handleDelete = async (id: number) => {
     if(!confirm("Are you sure you want to delete this?")) return;
     
-    await fetch(`http://localhost:3000/products/${id}`, {
+    await fetch(`https://glintgrace-api.onrender.com/products/${id}`, {
       method: 'DELETE'
     });
     fetchProducts(); // Refresh list immediately
