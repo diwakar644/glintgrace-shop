@@ -1,0 +1,127 @@
+.error404-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f7f9fb;
+}
+
+#monkey_404 {
+  width: 800px;
+  height: 480px;
+}
+
+/* === SVG Base Styles === */
+
+.st0 { fill: #e8ebed; }
+.st1 { fill: #ffffff; }
+.st2,
+.st5 {
+  fill: none;
+  stroke: #89949b;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.st3,
+.st4,
+.st13 {
+  fill: #ffffff;
+  stroke: #89949b;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.st6 {
+  fill: none;
+  stroke: #89949b;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.st7 {
+  fill: #ffffff;
+  stroke: #89949b;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.st8,
+.st9 {
+  fill: #89949b;
+}
+.st10 {
+  fill: none;
+  stroke: #89949b;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.st11 { fill: #ffffff; }
+.st12 {
+  fill: #ffffff;
+  stroke: #8894a0;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.st14,
+.st15 {
+  fill: none;
+  stroke: #89949b;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* === Animations === */
+
+#monkey {
+  animation: monkey-breathe 3s infinite ease-in-out;
+}
+
+#zelda,
+#tetris,
+#moon,
+#star_a,
+#star_b,
+#star_c,
+#star_d,
+#number_4,
+#number_4_2,
+#number_0,
+#sword {
+  animation: levitate 3s infinite ease-in-out;
+}
+
+#eye_left {
+  transform-origin: 191px 257px;
+  animation: blink-l 12s infinite ease-in-out;
+}
+
+#eye_right {
+  transform-origin: 205px 256px;
+  animation: blink-r 12s infinite ease-in-out;
+}
+
+/* === Keyframes === */
+
+@keyframes monkey-breathe {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(1px); }
+}
+
+@keyframes levitate {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@keyframes blink-l {
+  0%,4%,20%,24%,30%,34%,70%,74%,100% { transform: rotateX(0); }
+  2%,22%,32%,72% { transform: rotateX(80deg); }
+}
+
+@keyframes blink-r {
+  0%,4%,30%,34%,50%,54%,100% { transform: rotateX(0); }
+  2%,32%,52% { transform: rotateX(80deg); }
+}

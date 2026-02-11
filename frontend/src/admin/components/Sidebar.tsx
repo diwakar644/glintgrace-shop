@@ -6,12 +6,9 @@ import {
   House,
   Truck,
   Package,
-  FileSpreadsheet,
-  CircleDollarSign,
   Users,
-  Tag,
-  ChartColumnBig,
   Settings,
+  ShieldUser,
 } from "lucide-react";
 
 const SidebarContainer = styled.aside`
@@ -61,7 +58,7 @@ const NavList = styled.nav`
 const NavItemLink = styled(NavLink)`
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
   padding: 8px 12px;
   border-radius: 6px;
@@ -114,7 +111,7 @@ export default function Sidebar() {
             style={{
               width: 32,
               height: 32,
-              background: "#333",
+              background: "4338ca",
               borderRadius: 4,
             }}
           />
