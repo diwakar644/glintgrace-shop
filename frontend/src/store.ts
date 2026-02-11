@@ -1,45 +1,42 @@
 import { create } from 'zustand';
 
-// Cart Types
+// ==============================
+// 1. SHOPPING CART LOGIC
+// ==============================
 interface CartItem {
   id: number;
   name: string;
   price: number;
   image: string;
-  quantity: number;
 }
 
-// Store Interface
-interface AppStore {
-  // Cart State
+interface CartState {
   cart: CartItem[];
-  addToCart: (product: any) => void;
+  addToCart: (item: CartItem) => void;
   removeFromCart: (id: number) => void;
   clearCart: () => void;
   total: () => number;
+}
 
-  // Auth State (NEW)
+export const useCart = create<CartState>((set, get) => ({
+  cart: [],
+  addToCart: (item) => set((state) => ({ cart: [...state.cart, item] })),
+  removeFromCart: (id) => set((state) => ({ cart: state.cart.filter((i) => i.id !== id) })),
+  clearCart: () => set({ cart: [] }),
+  total: () => get().cart.reduce((sum, item) => sum + item.price, 0),
+}));
+
+// ==============================
+// 2. ADMIN AUTH LOGIC
+// ==============================
+interface AuthState {
   isAdmin: boolean;
   login: () => void;
   logout: () => void;
 }
 
-export const useCart = create<AppStore>((set, get) => ({
-  // --- CART LOGIC ---
-  cart: [],
-  addToCart: (product) => set((state) => {
-    const existing = state.cart.find(item => item.id === product.id);
-    if (existing) {
-      return { cart: state.cart.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item) };
-    }
-    return { cart: [...state.cart, { ...product, quantity: 1 }] };
-  }),
-  removeFromCart: (id) => set((state) => ({ cart: state.cart.filter(item => item.id !== id) })),
-  clearCart: () => set({ cart: [] }),
-  total: () => get().cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-
-  // --- AUTH LOGIC (NEW) ---
+export const useAuthStore = create<AuthState>((set) => ({
   isAdmin: false,
   login: () => set({ isAdmin: true }),
-  logout: () => set({ isAdmin: false })
+  logout: () => set({ isAdmin: false }),
 }));
