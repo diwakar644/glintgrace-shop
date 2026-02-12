@@ -5,7 +5,7 @@ import { Trash2, Heart, Truck, ArrowRight, PlusCircle } from 'lucide-react';
 
 const Section = styled.section`
   padding-bottom: 2rem;
-  background-color: #f9fafb; /* neutral-50 */
+  background-color: #f9fafb;
   min-height: 100vh;
 `;
 
@@ -106,14 +106,16 @@ const ItemActions = styled.div`
   justify-content: space-between;
 
   @media (max-width: 640px) {
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 1rem;
   }
 `;
 
 const PriceTag = styled.div`
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #111827;
   margin-bottom: 0.5rem;
 `;
@@ -144,6 +146,7 @@ const IconButton = styled.button`
   color: #374151;
   cursor: pointer;
   transition: all 0.2s;
+  text-decoration: none;
 
   &:hover {
     background-color: #f3f4f6;
@@ -195,14 +198,14 @@ const Button = styled.button<{ $primary?: boolean; $secondary?: boolean }>`
   gap: 0.5rem;
 
   ${props => props.$primary && `
-    background-color: #10b981;
+    background-color: rgb(13, 171, 71);
     color: white;
     width: 100%;
     font-size: 1.125rem;
     padding: 0.75rem;
 
     &:hover {
-      background-color: #059669;
+      background-color: rgb(13, 146, 62);
     }
   `}
 
